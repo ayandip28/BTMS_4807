@@ -1,4 +1,3 @@
-# BTMS_4807
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -40,7 +39,7 @@ void loop() {
     digitalWrite(coolingRelayPin, HIGH); // Turn on the cooling relay
     lcd.setCursor(0, 1);
     lcd.print("Cooling ON ");
-  } else(temperature < 30.0) {
+  } else if (temperature < 30.0) {
     digitalWrite(coolingRelayPin, LOW); // Turn off the cooling relay
   }
 
@@ -48,7 +47,7 @@ void loop() {
     digitalWrite(heatingRelayPin, HIGH); // Turn on the heating relay
     lcd.setCursor(0, 1);
     lcd.print("Heating ON ");
-  } else(temperature > 10.0) {
+  } else if (temperature > 10.0) {
     digitalWrite(heatingRelayPin, LOW); // Turn off the heating relay
   }
 
