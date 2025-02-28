@@ -1,0 +1,53 @@
+Initialization:
+  Initialize LM35 sensor pin
+  Initialize current sensor pin
+  Initialize voltage sensor pin
+  Initialize cooling relay pin
+  Initialize heating relay pin
+  Initialize LCD display with I2C address (0x27)
+
+Setup:
+  Begin Serial communication at 115200 baud rate
+  Initialize LCD display and turn on backlight
+  Configure LM35 sensor pin as INPUT
+  Configure current sensor pin as INPUT
+  Configure voltage sensor pin as INPUT
+  Configure cooling relay pin as OUTPUT
+  Configure heating relay pin as OUTPUT
+  Set cooling relay to OFF
+  Set heating relay to OFF
+
+Loop:
+  Read analog value from LM35 sensor pin
+  Convert analog value to temperature in Celsius
+
+  Read analog value from current sensor pin
+  Convert analog value to current
+
+  Read analog value from voltage sensor pin
+  Convert analog value to voltage
+
+  Calculate power as P = V * I
+
+  Accumulate total energy using power and time
+  Calculate charging cycles based on total energy and battery capacity
+
+  Print temperature, current, voltage, power, and charging cycles to Serial Monitor
+  Display temperature on LCD
+
+  IF temperature > 45°C:
+    Turn ON cooling relay
+    Display "Cooling ON" on LCD
+  ELSE IF temperature < 30°C:
+    Turn OFF cooling relay
+
+  IF temperature < 10°C:
+    Turn ON heating relay
+    Display "Heating ON" on LCD
+  ELSE IF temperature > 10°C:
+    Turn OFF heating relay
+
+  IF 10°C <= temperature <= 45°C:
+    Display "System STABLE" on LCD
+
+  Wait for 1 second
